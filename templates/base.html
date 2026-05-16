@@ -7,17 +7,25 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Attrition App</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="/dashboard">Dashboard Analitik</a></li>
-            <li><a href="/predict">Prediksi Attrition</a></li>
-        </ul>
-    </nav>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="app-logo">A</span>
+                <span class="app-title">Attrition App</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="/dashboard" class="nav-link">Dashboard Analitik</a>
+                <a href="/predict" class="nav-link">Prediksi Attrition</a>
+            </nav>
+        </aside>
+        <div class="main-content">
+            <header class="main-header">
+                <span class="main-header-title">{{ page_title if page_title is defined else 'Attrition App' }}</span>
+            </header>
+            <main>
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,60 +1,55 @@
 {% extends "base.html" %}
 {% block title %}Predict Attrition{% endblock %}
+{% set page_title = 'Predict Attrition' %}
 {% block content %}
-<h1>Predict Attrition</h1>
-{% if features and prediction is not none %}
-    <center><h2>Attrition: {{ prediction }}</h2></center>
-{% endif %}
-<form method="post" class="predict-form">
-    <div class="form-row">
-        <label>MonthlyIncome:</label>
-        <input type="number" name="MonthlyIncome" value="{{ features['MonthlyIncome'] }}" required>
-    </div>
-    <div class="form-row">
-        <label>Age:</label>
-        <input type="number" name="Age" value="{{ features['Age'] }}" required>
-    </div>
-    <div class="form-row">
-        <label>TotalWorkingYears:</label>
-        <input type="number" name="TotalWorkingYears" value="{{ features['TotalWorkingYears'] }}" required>
-    </div>
-    <div class="form-row">
-        <label>OverTime:</label>
-        <select name="OverTime" required>
-            <option value="0" {% if features['OverTime'] == 0 %}selected{% endif %}>No</option>
-            <option value="1" {% if features['OverTime'] == 1 %}selected{% endif %}>Yes</option>
-        </select>
-    </div>
-    <div class="form-row">
-        <label>MonthlyRate:</label>
-        <input type="number" name="MonthlyRate" value="{{ features['MonthlyRate'] }}" required>
-    </div>
-    <div class="form-row">
-        <label>DailyRate:</label>
-        <input type="number" name="DailyRate" value="{{ features['DailyRate'] }}" required>
-    </div>
-    <div class="form-row">
-        <label>DistanceFromHome:</label>
-        <input type="number" name="DistanceFromHome" value="{{ features['DistanceFromHome'] }}" required>
-    </div>
-    <div class="form-row">
-        <label>HourlyRate:</label>
-        <input type="number" name="HourlyRate" value="{{ features['HourlyRate'] }}" required>
-    </div>
-    <div class="form-row">
-        <label>NumCompaniesWorked:</label>
-        <input type="number" name="NumCompaniesWorked" value="{{ features['NumCompaniesWorked'] }}" required>
-    </div>
-    <button type="submit" class="predict-btn">Submit</button>
-</form>
-<!-- {% if features and prediction is not none %}
-    <div class="result">
-        <h3>Input Features:</h3>
-        <ul>
-            {% for key, value in features.items() %}
-                <li><strong>{{ key }}:</strong> {{ value }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-{% endif %} -->
+<div class="predict-card">
+    <h2 class="predict-title">Predict Attrition</h2>
+    {% if features and prediction is not none %}
+        <div class="predict-result">Attrition: <span>{{ prediction }}</span></div>
+    {% endif %}
+    <form method="post" class="predict-form">
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Monthly Income</label>
+                <input type="number" name="MonthlyIncome" value="{{ features['MonthlyIncome'] }}" required>
+            </div>
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" name="Age" value="{{ features['Age'] }}" required>
+            </div>
+            <div class="form-group">
+                <label>Total Working Years</label>
+                <input type="number" name="TotalWorkingYears" value="{{ features['TotalWorkingYears'] }}" required>
+            </div>
+            <div class="form-group">
+                <label>OverTime</label>
+                <select name="OverTime" required>
+                    <option value="0" {% if features['OverTime'] == 0 %}selected{% endif %}>No</option>
+                    <option value="1" {% if features['OverTime'] == 1 %}selected{% endif %}>Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Monthly Rate</label>
+                <input type="number" name="MonthlyRate" value="{{ features['MonthlyRate'] }}" required>
+            </div>
+            <div class="form-group">
+                <label>Daily Rate</label>
+                <input type="number" name="DailyRate" value="{{ features['DailyRate'] }}" required>
+            </div>
+            <div class="form-group">
+                <label>Distance From Home</label>
+                <input type="number" name="DistanceFromHome" value="{{ features['DistanceFromHome'] }}" required>
+            </div>
+            <div class="form-group">
+                <label>Hourly Rate</label>
+                <input type="number" name="HourlyRate" value="{{ features['HourlyRate'] }}" required>
+            </div>
+            <div class="form-group">
+                <label>Num Companies Worked</label>
+                <input type="number" name="NumCompaniesWorked" value="{{ features['NumCompaniesWorked'] }}" required>
+            </div>
+        </div>
+        <button type="submit" class="predict-btn">Submit</button>
+    </form>
+</div>
 {% endblock %}

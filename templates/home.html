@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
-{% block title %}Home - Attrition App{% endblock %}
+{% block title %}Home{% endblock %}
+{% set page_title = 'Home' %}
 {% block content %}
-<h2>Welcome to the Attrition App</h2>
-<p>This is the home page.</p>
+<div class="home-card">
+	<h2>Welcome to the Attrition App</h2>
+	<p class="home-desc">A modern, professional tool for HR attrition analytics and prediction.</p>
+</div>
 {% endblock %}

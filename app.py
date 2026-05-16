@@ -8,11 +8,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', page_title='Home')
 
 @app.route('/dashboard')
 def get_dashboard():
-    return render_template('dashboard_view.html')
+    return render_template('dashboard_view.html', page_title='Dashboard')
 
 @app.route('/model')
 def get_model_new():
@@ -21,7 +21,7 @@ def get_model_new():
         print("Model downloaded and saved successfully.")
     else:
         print("Failed to download and save the model.")
-    return render_template('home.html')
+    return render_template('home.html', page_title='Home')
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict_view():
@@ -35,7 +35,7 @@ def predict_view():
         df = pd.DataFrame([features])
         pred = model.predict(df)[0]
         prediction = "Yes" if pred == 1 else "No" if pred == 0 else str(pred)
-    return render_template("predict_view.html", features=features, prediction=prediction)
+    return render_template("predict_view.html", features=features, prediction=prediction, page_title='Predict Attrition')
 
 @app.route('/api/predict', methods=['POST'])
 def api_predict():

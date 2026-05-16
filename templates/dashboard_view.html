@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}Dashboard - Attrition App{% endblock %}
+{% block title %}Dashboard{% endblock %}
+{% set page_title = 'Dashboard' %}
 {% block content %}
-<div class="dashboard-container">
-    <div class="iframe-wrapper">
+<div class="dashboard-card">
+    <div class="dashboard-iframe-wrapper">
         <iframe 
             src="https://datastudio.google.com/embed/reporting/42579ec6-db37-4325-989c-9161a024ce37/page/p_ebn8r5rn3d"
-            style="width: 100%; height: 100vh; border: 0;"
             allowfullscreen
             sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
         </iframe>
